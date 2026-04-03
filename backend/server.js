@@ -25,7 +25,9 @@ app.use(session({
 }));
 
 app.use(passport.initialize()); // initialize passport
-app.use(passport.session()); // persistent login sessions
+// app.use(passport.session()); // persistent login sessions
+
+import "./config/passport.js"; // import passport configuration
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
