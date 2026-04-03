@@ -6,6 +6,7 @@ import session from "express-session";
 import cookieParser from "cookie-parser";
 import passport from "passport";
 import connectDb from "./config/db.js";
+import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 
 connectDb();
 
@@ -37,6 +38,8 @@ app.use("/auth", (req, res) => {
     res.send("Auth route");
 });
 
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`)
