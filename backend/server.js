@@ -1,11 +1,13 @@
-import express, { urlencoded } from "express";
 import dotenv from "dotenv";
+dotenv.config();
+import express from "express";
 import cors from "cors";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 import passport from "passport";
+import connectDb from "./config/db.js";
 
-dotenv.config();
+connectDb();
 
 const PORT = process.env.PORT || 5000;;
 
